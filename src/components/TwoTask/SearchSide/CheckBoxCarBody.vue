@@ -58,7 +58,7 @@ export default {
     name: 'CheckBoxCarBody',
 
     computed: {
-        ...mapGetters(['gDataCarsToTaskTwo', 'gValueCarsByCheckBox']),
+        ...mapGetters(['gDataCarsToTaskTwo', 'gValueCarsByCheckBox', 'gDataCarsByModel']),
         carBody: {
             get() {
                 return this.gValueCarsByCheckBox
@@ -71,7 +71,7 @@ export default {
     methods: {
         ...mapActions(['aValueCarsByCheckBox']),
         activeCheckbox(val) {
-            let result = this.gDataCarsToTaskTwo.reduce((res, car) => {
+            let result = this.gDataCarsByModel.reduce((res, car) => {
                 if (car.carBody.toUpperCase() === val.toUpperCase()) return (res += 1)
                 else return res
             }, 0)
