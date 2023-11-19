@@ -13,6 +13,7 @@ export default createStore({
         valueCarsByCheckBox: null,
         valueCarsByBrand: null,
         valueCarsByModel: null,
+        checkBoxList: [],
     },
     getters: {
         // * --------------------------------------- TaskOne
@@ -27,6 +28,13 @@ export default createStore({
             },
         // * --------------------------------------- TaskTwo
         gDataCarsToTaskTwo: ({ dataCarsToTaskTwo }) => dataCarsToTaskTwo,
+        gCheckBoxList: (state) => {
+            let checkBox = new Set()
+            state.dataCarsToTaskTwo.forEach((element) => {
+                checkBox.add(element.carBody)
+            })
+            return checkBox
+        },
         gValueByTypeBody: ({ valueByTypeBody }) => valueByTypeBody,
         gValueCarsByCheckBox: ({ valueCarsByCheckBox }) => valueCarsByCheckBox,
         gValueCarsByBrand: ({ valueCarsByBrand }) => valueCarsByBrand,

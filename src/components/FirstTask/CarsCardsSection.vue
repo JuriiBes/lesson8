@@ -23,9 +23,6 @@ export default {
     },
     computed: {
         ...mapGetters(['gDataCarsToCategory']),
-        outputResult() {
-            return this.category
-        },
     },
 }
 </script>

@@ -1,0 +1,22 @@
+[
+    {
+        "name": "SUV",
+        "linkToIcon": "https://cdn03.carsforsale.com/content/images/bodystyles/suv-sm.png"
+    },
+    {
+        "name": "Coupe",
+        "linkToIcon": "https://cdn03.carsforsale.com/content/images/bodystyles/coupe-sm.png"
+    },
+    {
+        "name": "Hatchback",
+        "linkToIcon": "https://cdn03.carsforsale.com/content/images/bodystyles/hatchback-sm.png"
+    },
+    {
+        "name": "Pickup Truck",
+        "linkToIcon": "https://cdn03.carsforsale.com/content/images/bodystyles/truck-sm.png"
+    },
+    {
+        "name": "Mini-Van",
+        "linkToIcon": "https://cdn03.carsforsale.com/content/images/bodystyles/minivan-sm.png"
+    }
+]

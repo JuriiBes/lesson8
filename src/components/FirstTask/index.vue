@@ -1,20 +1,13 @@
 <template>
     <div>
         <nav class="cars__navigation">
-            <div class="icon__link" @click="clickSuv()">
-                <img :src="iconSuv" alt="icon" class="icon" /><span>SUV</span>
-            </div>
-            <div class="icon__link" @click="clickCoupe()">
-                <img :src="iconCoupe" alt="icon" class="icon" /><span>Coupe</span>
-            </div>
-            <div class="icon__link" @click="clickHatchback()">
-                <img :src="iconHatchback" alt="icon" class="icon" /><span>Hatchback</span>
-            </div>
-            <div class="icon__link" @click="clickTruck()">
-                <img :src="iconTruck" alt="icon" class="icon" /><span>Truck</span>
-            </div>
-            <div class="icon__link" @click="clickMinivan()">
-                <img :src="iconMinivan" alt="icon" class="icon" /><span>Minivan</span>
+            <div
+                v-for="(navItem, index) in dataLinkNav"
+                :key="index"
+                class="icon__link"
+                @click="clickToLink(navItem.name)"
+            >
+                <img :src="navItem.linkToIcon" alt="icon" class="icon" /><span>{{ navItem.name }}</span>
             </div>
         </nav>
 
@@ -27,6 +20,7 @@
 <script>
 import { mapActions } from 'vuex'
 import CarsCardsSection from '@/components/FirstTask/CarsCardsSection.vue'
+import navigationData from '@/data/navigationData.json'
 
 export default {
     name: 'FirstTask',
@@ -36,45 +30,18 @@ export default {
     data() {
         return {
             category: null,
+            dataLinkNav: navigationData,
         }
     },
 
-    computed: {
-        iconSuv() {
-            return require('@/assets/image/suv-sm.png')
-        },
-        iconCoupe() {
-            return require('@/assets/image/coupe-sm.png')
-        },
-        iconHatchback() {
-            return require('@/assets/image/hatchback-sm.png')
-        },
-        iconTruck() {
-            return require('@/assets/image/truck-sm.png')
-        },
-        iconMinivan() {
-            return require('@/assets/image/minivan-sm.png')
-        },
-    },
     created() {
         this.aDataCars()
     },
     methods: {
         ...mapActions(['aDataCars']),
-        clickSuv() {
-            this.category = 'suv'
-        },
-        clickHatchback() {
-            this.category = 'hatchback'
-        },
-        clickCoupe() {
-            this.category = 'coupe'
-        },
-        clickTruck() {
-            this.category = 'pickup Truck'
-        },
-        clickMinivan() {
-            this.category = 'mini-van'
+
+        clickToLink(category) {
+            this.category = category
         },
     },
 }
@@ -91,17 +58,19 @@ export default {
 .icon__link {
     position: relative;
     font-weight: 600;
-    width: 120px;
+    width: 150px;
     height: 100px;
     border-radius: 50%;
     background-color: aquamarine;
     transition: background-color ease 0.3s;
     cursor: pointer;
     & span {
-        display: block;
+        // display: block;
+        font-size: 16px;
         position: absolute;
-        top: 0;
+        top: 5%;
         left: 50%;
+        width: 100px;
         transform: translate(-50%, 95%);
         color: rgba(255, 0, 0, 0.521);
     }

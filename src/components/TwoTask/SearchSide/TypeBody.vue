@@ -21,8 +21,6 @@ export default {
                 return this.gValueByTypeBody
             },
             set(val) {
-                console.log('val')
-                console.log(val)
                 this.aValueByTypeBody(val)
             },
         },
